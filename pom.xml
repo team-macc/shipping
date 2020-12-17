@@ -11,7 +11,7 @@
 	<groupId>com.teammacc</groupId>
 	<artifactId>shipping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>frete</name>
+	<name>shipping</name>
 	<description>Microserviço Frete</description>
 
 	<properties>
