@@ -1,0 +1,85 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Shipping Cost Calculator",
+    "version": "1.0.0",
+    "title": "Frete",
+    "termsOfService": "",
+    "contact": {
+      "email": "ingridteles@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "com.teammacc",
+  "basePath": "/api/shipping",
+  "tags": [
+    {
+      "name": "Shipping",
+      "description": "Shipping Cost Calculator",
+      "externalDocs": {
+        "description": "Shipping Cost Calculator",
+        "url": "com.teammacc/api/shipping"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/shipping/{cep}": {
+      "get": {
+        "tags": [
+          "Shipping"
+        ],
+        "summary": "Shipping Cost Calculator",
+        "description": "Shipping Cost Calculator",
+        "operationId": "findShipping",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cep",
+            "description": "Número do CEP de destino",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/Shipping"
+            }
+          },
+          "400": {
+            "description": "CEP de destino invalido. Número inválido. Erro no serviço externo."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Shipping": {
+      "type": "object",
+      "properties": {
+        "shippingCost": {
+          "type": "number",
+          "example": 31.3
+        },
+        "deliveryEstimated": {
+          "type": "integer",
+          "example": 12
+        }
+      }
+    }
+  }
+}

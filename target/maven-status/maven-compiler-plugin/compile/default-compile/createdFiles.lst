@@ -1,0 +1,11 @@
+com/teammacc/shipping/correiostools/FreteResultItem.class
+com/teammacc/shipping/exceptions/NumeroInvalidoException.class
+com/teammacc/shipping/exceptions/ResourceExceptionHandler.class
+com/teammacc/shipping/exceptions/ErroDesconhecidoException.class
+com/teammacc/shipping/data/vo/ShippingVO.class
+com/teammacc/shipping/ShippingApplication.class
+com/teammacc/shipping/correiostools/Frete.class
+com/teammacc/shipping/controller/ShippingController.class
+com/teammacc/shipping/service/ShippingService.class
+com/teammacc/shipping/correiostools/FreteResult.class
+com/teammacc/shipping/exceptions/CepInvalidoException.class
