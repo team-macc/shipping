@@ -3,13 +3,11 @@ package com.teammacc.shipping.controller;
 import com.teammacc.shipping.data.vo.ShippingVO;
 import com.teammacc.shipping.service.ShippingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/shipping")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/")
 public class ShippingController {
 
     private final ShippingService shippingService;
@@ -19,7 +17,7 @@ public class ShippingController {
         this.shippingService = shippingService;
     }
 
-    @GetMapping(value = "/{cep}")
+    @GetMapping(value = "/consulta/{cep}")
     public ShippingVO findShipping(@PathVariable("cep") String cep) {
         return shippingService.findShipping(cep);
     }

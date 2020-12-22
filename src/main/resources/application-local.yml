@@ -1,0 +1,12 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /shipping
+
+spring:
+  application:
+    name: shipping
+
+springdoc:
+  api-docs:
+    path: /api-docs
