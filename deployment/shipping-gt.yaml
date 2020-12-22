@@ -1,0 +1,50 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: shipping-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: shipping-sg
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - shipping-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /shipping/
+    rewrite:
+      uri: /
+
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: shipping
+    corsPolicy:
+      allowOrigins:
+        - exact: "*"
+      allowMethods:
+        - POST
+        - GET
+        - PUT
+        - DELETE
+        - OPTIONS
+      allowCredentials: true
+      allowHeaders:
+        - Content-Type
+        - Authorization
+      maxAge: "24h"
